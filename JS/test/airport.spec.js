@@ -1,4 +1,3 @@
-const { MilitaryPlane } = require('../planes/MilitaryPlane');
 const { PassengerPlane } = require('../planes/PassengerPlane');
 const { MILITARY_TYPE } = require('../constants/militaryType');
 const { CLASSIFICATION_LEVEL } = require('../constants/classificationLevel');

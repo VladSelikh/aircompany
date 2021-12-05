@@ -9,11 +9,13 @@ class Airport {
 }
 
      getPassengerPlanes() {
-        var x = [];
-        for (let p of this.planes) {
-            if (p instanceof PassengerPlane) {x.push(p);}
-        }
-        return x;
+        let passengerPlanes = [];
+        this.planes.forEach(plane => {
+          if (plane instanceof PassengerPlane) {
+              passengerPlanes.push(plane);
+          }
+      });
+        return passengerPlanes;
     }
 
     getMilitaryPlanes() {
@@ -28,37 +30,21 @@ class Airport {
 
     getPassengerPlaneWithMaxPassengersCapacity() {
         let passengerPlanes = this.getPassengerPlanes();
-        let planeWithMaxCapacity = passengerPlanes[0];
-        for (let i = 0; i < passengerPlanes.length; i++) {
-            if (passengerPlanes[i].getPassengersCapacity() > planeWithMaxCapacity.getPassengersCapacity()) {
-                planeWithMaxCapacity = passengerPlanes[i];
-            }
-        }
-        return planeWithMaxCapacity;
+        return passengerPlanes.sort((a, b) => {
+          return a.getPassengersCapacity() > b.getPassengersCapacity() ? -1 : 1;
+        })[0];
     }
 
     getTransportMilitaryPlanes(){
-        let transportMilitaryPlanes = [];
-        let militaryPlanes = this.getMilitaryPlanes();
-        for (let i = 0; i < militaryPlanes.length; i++) {
-        if (militaryPlanes[i].getMilitaryType() == MILITARY_TYPE.TRANSPORT) {
-        transportMilitaryPlanes.push(militaryPlanes[i]);
-        }
-        }
-        return transportMilitaryPlanes;
+        return this.getMilitaryPlanes().filter(plane => {
+          return plane.getMilitaryType() === MILITARY_TYPE.TRANSPORT;
+        })
     }
 
-
-    getBomberMilitaryPlanes()
-    {
-        let bomberMilitaryPlanes = [];
-        let militaryPlanes = this.getMilitaryPlanes();
-        for (let i = 0; i < militaryPlanes.length; i++) {
-            if (militaryPlanes[i].getMilitaryType()=== MILITARY_TYPE.BOMBER) {
-                bomberMilitaryPlanes.push(militaryPlanes[i]);
-            }
-        }
-        return bomberMilitaryPlanes;
+    getBomberMilitaryPlanes() {
+      return this.getMilitaryPlanes().filter(plane => {
+        return plane.getMilitaryType() === MILITARY_TYPE.BOMBER;
+      })
     }
 
 
