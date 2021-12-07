@@ -17,4 +17,4 @@ class PassengerPlane extends Plane {
   }
 }
 
-module.exports = PassengerPlane;
+module.exports = { PassengerPlane };

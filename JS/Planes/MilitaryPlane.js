@@ -17,4 +17,4 @@ class MilitaryPlane extends Plane {
   }
 }
 
-module.exports = MilitaryPlane;
+module.exports = { MilitaryPlane };
