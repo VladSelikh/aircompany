@@ -1,22 +1,19 @@
 class Plane {
     constructor(aircraftModel, speedLimit, distanceLimit, loadCapacity) {
-        this.aircraftModel = aircraftModel;
-        this.speedLimit = speedLimit;
-        this.distanceLimit = distanceLimit;
-        this.loadCapacity = loadCapacity;
-    }
+        this.planeConstructor = {aircraftModel, speedLimit, speedLimit, distanceLimit, loadCapacity}
+    };
     getAircraftModel() {
-        return this.aircraftModel;
-    }
+        return this.aircraftModel
+    };
     getSpeedLimit() {
-        return this.speedLimit;
-    }
+        return this.speedLimit
+    };
     getDistanceLimit() {
-        return this.distanceLimit;
-    }
+        return this.distanceLimit
+    };
     getLoadCapacity() {
-        return this.loadCapacity;
-    }
-}
+        return this.loadCapacity
+    };
+};
 
 module.exports = Plane;
