@@ -1,4 +1,4 @@
-const Plane = require("./Plane");
+const { Plane } = require("./Plane");
 
 class MilitaryPlane extends Plane {
   constructor(
