@@ -1,7 +1,7 @@
-const { PassengerPlane } = require("./planes/Passenger");
-const { MilitaryPlane } = require("./planes/Military");
-const { ExperimentalPlane } = require("./planes/Experimental");
-const { MILITARYTYPE } = require("./models/MilitaryType");
+const { PassengerPlane } = require("./planes/PassengerPlane");
+const { MilitaryPlane } = require("./planes/MilitaryPlane");
+const { ExperimentalPlane } = require("./planes/ExperimentalPlane");
+const { MILITARY_TYPE } = require("./models/MilitaryType");
 
 class Airport {
   constructor(planes) {
@@ -9,11 +9,11 @@ class Airport {
   }
 
   getPassengerPlanes() {
-    return this.planes.filter(planes => planes instanceof PassengerPlane);
+    return this.planes.filter((planes) => planes instanceof PassengerPlane);
   }
 
   getMilitaryPlanes() {
-    return this.planes.filter(planes => planes instanceof MilitaryPlane);
+    return this.planes.filter((planes) => planes instanceof MilitaryPlane);
   }
 
   getPassengerPlaneWithMaxPassengersCapacity() {
@@ -26,19 +26,19 @@ class Airport {
   getTransportMilitaryPlanes() {
     let militaryPlanes = this.getMilitaryPlanes();
     return militaryPlanes.filter(
-      planes => planes.getMilitaryType() == MILITARYTYPE.TRANSPORT
+      (planes) => planes.getMilitaryType() == MILITARY_TYPE.TRANSPORT
     );
   }
 
   getBomberMilitaryPlanes() {
     let militaryPlanes = this.getMilitaryPlanes();
     return militaryPlanes.filter(
-      planes => planes.getMilitaryType() === MILITARYTYPE.BOMBER
+      (planes) => planes.getMilitaryType() === MILITARY_TYPE.BOMBER
     );
   }
 
   getExperimentalPlanes() {
-    return this.planes.filter(planes => planes instanceof ExperimentalPlane);
+    return this.planes.filter((planes) => planes instanceof ExperimentalPlane);
   }
 
   sortByMaxDistance() {
