@@ -32,7 +32,7 @@ describe("Test airport:", () => {
     expect(
       listExperementalPlanes.filter(
         (experimentalPlanes) =>
-          experimentalPlanes.classificationLevel ==
+          experimentalPlanes.classificationLevel ===
           CLASSIFICATION_LEVEL.Unclassified
       )
     ).empty;
