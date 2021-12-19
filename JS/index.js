@@ -5,6 +5,7 @@ const { MILITARY_TYPE } = require("./models/MilitaryType");
 const { ExperimentalPlane } = require("./planes/ExperimentalPlane");
 const { EXPERIMENTAL_TYPES } = require("./models/ExperimentalType");
 const { CLASSIFICATION_LEVEL } = require("./models/ClassificationLevel");
+const { stringifier } = require('./utils/stringifier');
 
 const planesTestGrid = [
   new PassengerPlane({ aircraftModel: "Boeing-737", speedLimit: 900, distanceLimit: 12000, loadCapacity: 60500, passengersCapacity: 164 }),
@@ -27,9 +28,6 @@ const planesTestGrid = [
 
 (function testTextOutput() {
 
-  function stringifier(obj) {
-    return JSON.stringify(obj);
-  }
   let airport = new Airport(planesTestGrid);
   let militaryAirport = new Airport(airport.getMilitaryPlanes());
   let passengerAirport = new Airport(airport.getPassengerPlanes());
